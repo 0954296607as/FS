@@ -1,7 +1,13 @@
 const express= require ('express');
 const server = express ();
+
+
+
 server.use(express.static(__dirname+"/public"));
 server.get("/", (req,res)=>sendFile(index.html));
+server.post('/',(req,res)=>{
+
+});
 
 
 server.listen(3000,(err)=>{
