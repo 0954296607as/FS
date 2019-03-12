@@ -1,5 +1,5 @@
 const post=require('emailjs');
-var server 	= post.server.connect({
+const server = post.server.connect({
     user:    "0954296607as@ukr.net", 
     password:"0954296607", 
     host:    "smtp.ukr.net", 
@@ -13,4 +13,5 @@ var server 	= post.server.connect({
  //   cc:      "else <else@your-email.com>",
     subject: "testing"
  }, function(err, message) { console.log(err || message); });
+ 
 
