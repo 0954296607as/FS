@@ -14,8 +14,7 @@ class AppBase {
                 }
             })
         })
-  }
-  
+  } 
   all(sql,params=[]){
     return new Promise((resolve,reject)=>{
         this.db.all(sql,params,(err,rows)=>{
@@ -28,11 +27,34 @@ class AppBase {
         });
     });           
   }
+  get(sql,parems=[]){
+    return new Promise ((resolve,reject)=>{
+      this.db.get(sql,(err,row)=>{
+        if (err){
+          console.log("in get",err);
+          reject(err)
+        }else{
+          //console.log(row);
+          resolve(row);
+        }
+      })
+    })
+  }
 
   async selectNameAllUsers(){
-    const sql = `SELECT name FROM users`
+    const sql = `SELECT * FROM users`;
     return await this.all(sql);
   }
+  async isLogin(login){
+    const sql= `SELECT * FROM users WHERE login="${login}"`;
+      try{
+        return (await this.get(sql))? true: false;
+      }catch(e){
+        console.log(e);
+        throw new Error ("error was in is Login",e);
+      }
+  }
+
 }
 
 module.exports = AppBase; 
