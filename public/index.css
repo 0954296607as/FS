@@ -1,0 +1,29 @@
+body{
+    background-color: aliceblue;
+    text-align: center;
+}
+.main{
+    width: 350px;
+    background-color: #ffffff;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000000;
+}
+.main ul{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+.main li{
+   margin: 10px;
+}
+.main li a{
+    text-decoration: none;
+}
+.main li:hover{
+    background-color: #bababa;
+}
+
+

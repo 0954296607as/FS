@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Регистрация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="registration.css">
+    <script></script>
+</head>
+<body>
+    <div class="registrationForm">
+        <h1>Регистрация</h1>
+        <form method="POST" action="/registration/" enctype="application/x-www-form-urlencoded">
+            <input maxlength="50" type="text" name="name" placeholder="your fist name"  required="required">
+            <input type="text" maxlength="50" name = "surname" placeholder="your surname"  required="required">
+            <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+            <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+            <input type="email" name="email" maxlength="50" placeholder="your email" required="required">
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+   
+</body>
+</html>
