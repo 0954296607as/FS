@@ -45,20 +45,27 @@ class AppBase {
     const sql = `SELECT * FROM users`;
     return await this.all(sql);
   }
+  //Check the login is existed (true =existed, false = not )
   async isLogin(login){
     const sql= `SELECT * FROM users WHERE login="${login}"`;
       try{
         return (await this.get(sql))? true: false;
       }catch(e){
         console.log(e);
-        throw new Error ("error was in is Login",e);
+        //throw new Error ("error was in is Login",e);
       }
   }
+  //Registration (return true = user doesn`t exist, false = user exists)
   async addUsers(login, name, surname, password, email, picture_id=null){
     const params=[login, name, surname, password, email, picture_id];
     const sql=`INSERT INTO users (login, name, surname, password, email, picture_id) VALUES (?, ?, ?, ?, ?, ?)`;
-    await this.run(sql,params);
-    return "sucsessed";
+    try{
+      await this.run(sql,params);
+      return true;
+   }catch(e){
+     return false
+   }
+   
   }
   
 
