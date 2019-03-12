@@ -42,12 +42,12 @@ class AppBase {
   }
 
   async selectNameAllUsers(){
-    const sql = `SELECT * FROM users`;
+    const sql = `SELECT  login, name, surname FROM users`;
     return await this.all(sql);
   }
   //Check the login is existed (true =existed, false = not )
   async isLogin(login){
-    const sql= `SELECT * FROM users WHERE login="${login}"`;
+    const sql= `SELECT  FROM users WHERE login="${login}"`;
       try{
         return (await this.get(sql))? true: false;
       }catch(e){
