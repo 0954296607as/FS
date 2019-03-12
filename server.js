@@ -22,7 +22,9 @@ server.get("/", (req,res)=>res.send(index.html))
 
 server.post('/registration/',(req,res)=>{
     console.log(req.body);
-    res.send("all right");
+    db.addUsers(req.body.login, req.body.name, req.body.surname, req.body.password,req.body.email)
+        .then(value=>res.send((value)?"<h1>Вы зарегистрированны</h1>":"<h1>ПОльзователь с таким логинов уже существует</h1>"))
+        
 });
 
 
