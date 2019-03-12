@@ -45,9 +45,9 @@ class AppBase {
     const sql = `SELECT  login, name, surname FROM users`;
     return await this.all(sql);
   }
-  //Check the login is existed (true =existed, false = not )
-  async isLogin(login){
-    const sql= `SELECT  FROM users WHERE login="${login}"`;
+  //Check the login and password (true =match, false = not )
+  async isLogin(login, password){
+    const sql= `SELECT * FROM users WHERE login="${login}" AND password="${password}"`;
       try{
         return (await this.get(sql))? true: false;
       }catch(e){
