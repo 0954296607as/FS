@@ -3,7 +3,7 @@ class AppBase {
   constructor(dbPath) {
     this.db = new sqlite3.Database(dbPath, err => console.log(err || "connection"));
   }
-  async run(sql, params=[]){
+  run(sql, params=[]){
         return new Promise ((resolve,reject)=>{
             this.db.run(sql, params,(err)=>{
                 if(err){
@@ -54,6 +54,13 @@ class AppBase {
         throw new Error ("error was in is Login",e);
       }
   }
+  async addUsers(login, name, surname, password, email, picture_id=null){
+    const params=[login, name, surname, password, email, picture_id];
+    const sql=`INSERT INTO users (login, name, surname, password, email, picture_id) VALUES (?, ?, ?, ?, ?, ?)`;
+    await this.run(sql,params);
+    return "sucsessed";
+  }
+  
 
 }
 
