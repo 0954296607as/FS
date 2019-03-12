@@ -31,8 +31,12 @@ server.post('/registration/',(req,res)=>{
         .then(value=>{
             res.send((value)?"<h1>Вы зарегистрированны, данные отправленны на почту</h1>":"<h1>ПОльзователь с таким логинов уже существует</h1>")
             if(value){
-                mail.sendMail(req.body.email,[req.body.login, req.body.name, req.body.surname, req.body.password])
-                .then(v=>console.log(v));
+                mail.sendMail(req.body.email,`
+                Логин - ${req.body.login},
+                Имя - ${req.body.name},
+                Фамилия - ${req.body.surname},
+                Пароль - ${req.body.password}`)
+               // .then(v=>console.log(v));
             }
         })
 });
