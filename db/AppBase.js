@@ -27,7 +27,7 @@ class AppBase {
         });
     });           
   }
-  get(sql,parems=[]){
+  get(sql){
     return new Promise ((resolve,reject)=>{
       this.db.get(sql,(err,row)=>{
         if (err){
