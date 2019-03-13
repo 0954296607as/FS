@@ -1,5 +1,5 @@
 <nav class="adminNav"></nav>
-    <h2>Административная панель<% if(root){%><p>Здравствуйте <%=data.name%></p><%}%></h2>
+    <h2 id="head">Административная панель. <% if(root){%><span>Здравствуйте <%=data.name%></span><%}%></h2>
     <ul id="navMenu">
         <%if (root==="user"||root==="root"){%>   
             <li><a href="#">сменить имя</a></li>

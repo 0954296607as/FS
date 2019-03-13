@@ -2,6 +2,9 @@ body{
     background-color: aliceblue;
  
 }
+#head{
+    background-color: cadetblue;
+}
 .admin{
     display: none;
     background-color: #ffffff;
@@ -28,8 +31,8 @@ button{
 #navMenu li{
     display: inline-block;
     margin:  0 20px 0 20px;
-    height: 30px;
-    font-size: 24px;
+    height: 20px;
+    font-size: 18px;
    
 }
 #navMenu li:hover{
