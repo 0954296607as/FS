@@ -1,6 +1,6 @@
 body{
     background-color: aliceblue;
-    text-align: center;
+ 
 }
 .admin{
     display: none;
@@ -19,4 +19,19 @@ input{
 button{
     float: right;
     margin: 0 10px 10px 0;
+}
+
+#navMenu{
+    text-align: center;
+    padding: 0;
+}
+#navMenu li{
+    display: inline-block;
+    margin:  0 20px 0 20px;
+    height: 30px;
+    font-size: 24px;
+   
+}
+#navMenu li:hover{
+    background-color: #bababa;
 }

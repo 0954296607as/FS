@@ -7,19 +7,10 @@
     <title>Административная панель</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/admin.css">
-    <script></script>
+    <script src="userPanel.js"></script>
 </head>
 <body>
-    <div class="admin">
-        <%- include aaa.ejs %>
-        <h1>Административная панель</h1>
-        <h2>Здавствуте <%= hello %></h2>
-        <h3>У вас права <%= root %></h3>
-        <input maxlength="50" type="text" name="login" placeholder="Введите логин"  required="required">
-        <input type="password" maxlength="50" name= "password" placeholder="Введите пароль"  required="required">
-        <button type="submit">Отправить</button>
-        
-    </div>
-   
+    <%-include header.ejs%>
+    <%-include body.ejs%>
 </body>
 </html>

@@ -58,8 +58,9 @@ class AppBase {
       }
   }
   //Registration (return true = user doesn`t exist, false = user exists)
-  async addUsers(login, name, surname, password, email, picture_id=null){
+  async addUser(login, name, surname, password, email, picture_id=null){
     const params=[login, name, surname, password, email, picture_id];
+    params.map(value=>value.toString());
     const sql=`INSERT INTO users (login, name, surname, password, email, picture_id) VALUES (?, ?, ?, ?, ?, ?)`;
     try{
       await this.run(sql,params);
