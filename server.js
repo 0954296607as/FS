@@ -1,30 +1,55 @@
-const express= require ('express');
+const express= require ('express')
+/*    list = require ('./routes/listRout'),
+      login = require ('./routes/loginRout') 
+*/
 const server = express ();
 const parser =require('body-parser');
+/////////////////////////////////////
 const AppBase=require('./db/AppBase');
 const db=new AppBase('./db/users.db');
+///////////////////////////////////
 const Post=require('./post/post');
 const mail=new Post();
+//////////////////////////////////
 server.use(parser());
-
-
-
-
+server.use(parser.urlencoded({ extended: false }));
 server.use(express.static(__dirname+"/public"));
+server.set('view engine', 'ejs');
+server.set('views','./views');
 
-server.get("/list/", (req,res)=>{
+
+//All users on a list.
+server.get("/list",(req,res)=>{
     db.selectNameAllUsers()
         .then(v=>res.send(v))
         .catch(err=>console.log(err))
+});
+//Admin
+server.post('/admin',(req,res)=>{
+    
 })
-
-server.get("/", (req,res)=>res.send(index.html))
-
+//login
 server.post('/login/',(req,res)=>{
     //console.log(req.body);
     db.isLogin(req.body.login, req.body.password)
-        .then(v=>res.send((v)?"<h1>вошли</h1>":"<h1>неправильный парол или логин</h1>"))
+        .then(v=>{
+            console.log(v);
+            if(v){
+                res.render("admin",
+                {
+                    hello:`${v.name}`
+                })
+            }else{
+                res.render("admin",{
+                    title:"Административная панель",
+                    hello:`Noname`,
+                    root:`Вы не зарегистрированны`,
+                    file:"nono"
+                })
+            }
+        })
 })
+server.get("/", (req,res)=>res.send(index.html))
 server.post('/registration/',(req,res)=>{
     //console.log(req.body);
     db.addUsers(req.body.login, req.body.name, req.body.surname, req.body.password,req.body.email)

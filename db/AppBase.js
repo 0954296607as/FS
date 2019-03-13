@@ -29,12 +29,13 @@ class AppBase {
   }
   get(sql){
     return new Promise ((resolve,reject)=>{
+      console.log(sql);
       this.db.get(sql,(err,row)=>{
         if (err){
           console.log("in get",err);
           reject(err)
         }else{
-          //console.log(row);
+         // console.log(row)
           resolve(row);
         }
       })
@@ -47,9 +48,10 @@ class AppBase {
   }
   //Check the login and password (true =match, false = not )
   async isLogin(login, password){
-    const sql= `SELECT * FROM users WHERE login="${login}" AND password="${password}"`;
+    console.log(typeof password);
+    const sql= `SELECT * FROM users WHERE login="${login}" AND password='${password}'`;
       try{
-        return (await this.get(sql))? true: false;
+        return await this.get(sql)
       }catch(e){
         console.log(e);
         //throw new Error ("error was in is Login",e);
