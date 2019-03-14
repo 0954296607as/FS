@@ -1,6 +1,6 @@
 module.exports =(express, db, mail)=>{
     const router=express.Router();
-    roter.post('/registration',(req,res)=>{
+    router.post('/registration',(req,res)=>{
         //console.log(req.body);
         db.addUser(req.body.login, req.body.name, req.body.surname, req.body.password,req.body.email)
             .then(value=>{

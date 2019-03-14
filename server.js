@@ -4,31 +4,26 @@ const db= new AppBase('./db/users.db');
 const server = express ();
 const parser =require('body-parser');
 const router=express.Router();
-///////////////////////////////////
+//Подключение модуля отправки сообщений
 const Post=require('./post/post');
 const mail=new Post();
 //////////////////////////////////
-
+//Обрабокта мидел
 server.use(parser.json());
 server.use(parser.urlencoded({ extended: false }));
 server.use(express.static(__dirname+"/public"));
+//Установка движка шаблонизатора
 server.set('view engine', 'ejs');
 server.set('views', __dirname+'/views');
 
-//
-const admin = require ('./router/admin.js')(express, db);
-//
-const registration = require('./router/registration')(express, db, mail);
+//Инициализация роутов
+const admin = require ('./router/adminRoute.js')(express, db);
+const registration = require('./router/registrationRoute')(express, db, mail);
+const list =require ('./router/listRoute')(express, db);
+//Подключение роутов
 server.use('/', registration);
-//adminRouter
 server.use("/", admin);
-
-//All users on a list.
-server.get("/list",(req,res)=>{
-    db.selectNameAllUsers()
-        .then(v=>res.send(v))
-        .catch(err=>console.log(err))
-});
+server.use("/", list);
 
 
 //login
@@ -60,6 +55,7 @@ server.post('/login',(req,res)=>{
         })
 })
 server.get("/", (req,res)=>res.send(index.html))
+
 
 server.listen(3000,(err)=>{
     if (err) throw Error ("ups");

@@ -60,17 +60,30 @@ class AppBase {
   //Registration (return true = user doesn`t exist, false = user exists)
   async addUser(login, name, surname, password, email, picture_id=null){
     const params=[login, name, surname, password, email, picture_id];
-    params.map(value=>value.toString());
+    const  Upparams=params.map(value=>{
+      console.log(value);
+      return value});
     const sql=`INSERT INTO users (login, name, surname, password, email, picture_id) VALUES (?, ?, ?, ?, ?, ?)`;
     try{
-      await this.run(sql,params);
+      await this.run(sql,Upparams);
       return true;
    }catch(e){
      return false
    }
    
   }
-  
+  //Change a name
+  async changeName(newName,login,name){
+    const params=[newName, login, name];
+    const sql=`UPDATE users SET name=? WHERE login=? AND name=name`;
+    try{
+      await this.run(sql,Upparams);
+      return true;
+   }catch(e){
+     return false
+   }
+   
+  }
 
 }
 

@@ -2,7 +2,7 @@ onload=(e)=>{
     const buttonList=document.getElementById('buttonList');
     const menu=document.querySelector(".listForm");
     const postQuery=()=>{
-        fetch("/list/",{
+        fetch("/list",{
             method: 'GET',
             headers:{
                 'Content-type' :'application/json'

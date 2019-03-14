@@ -2,14 +2,14 @@
     <h2 id="head">Административная панель. <% if(root){%><span>Здравствуйте <%=data.name%></span><%}%></h2>
     <ul id="navMenu">
         <%if (root==="user"||root==="root"){%>   
-            <li><a href="#">сменить имя</a></li>
-            <li><a href="#">сменить пароль</a></li>
-            <li><a href="#">сменить почтовый ящик</a></li>
+            <li class="menuLi" ><a href="#">сменить имя</a></li>
+            <li class="menuLi" ><a href="#">сменить пароль</a></li>
+            <li class="menuLi"><a href="#">сменить почтовый ящик</a></li>
         <%}%>
         <%if (root==="root") {%>
-            <li><a href="#">вывести список пользователей</a></li>
-            <li><a href="#">добавить пользователя</a></li>
-            <li><a href="#">удалить пользователя</a></li>
+            <li class="menuLi"><a href="#">вывести список пользователей</a></li>
+            <li class="menuLi"><a href="#">добавить пользователя</a></li>
+            <li class="menuLi"><a href="#">удалить пользователя</a></li>
         <%}%>
         <li><a href="../index.html">вернуться в главное меню</a></li>
     </ul>  
