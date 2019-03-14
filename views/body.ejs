@@ -3,13 +3,55 @@
         <div class="entrance">
         <h1>Вход </h1>
         <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+            
             <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
             <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
             <button type="submit">Отправить</button>
         </form>
         </div>
         <%}%>
-
+        <div id="name" class="hidden menu">
+            <form method="POST" action="/admin/name">
+                <input type="text" maxlength="50" name="name" placeholder="Введите новое имя"  required="required">
+                <input type="password" maxlength="50" name="password" placeholder="Введите пароль"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="password" class="hidden menu">
+            <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+                <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+                <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="mail" class="hidden menu">
+            <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+                <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+                <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="list" class="hidden menu">
+            <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+                <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+                <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="add" class="hidden menu">
+            <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+                <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+                <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div id="delete" class="hidden menu">
+            <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+                <input type="text" maxlength="50" name ="login" placeholder="login"  required="required">
+                <input type="password" maxlength="50" name= "password" placeholder="password"  required="required">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
 </div>
 <%if(root==="user"){%>
     <script src="/js/user.js"></script>

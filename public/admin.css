@@ -38,3 +38,42 @@ button{
 #navMenu li:hover{
     background-color: #bababa;
 }
+.entrance{
+    background-color: #ffffff;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000000;
+}
+#name{
+    
+ 
+}
+#password{
+    display: none;
+  
+}
+#mail{
+   
+}
+#add{
+    
+}
+#delete{
+    
+}
+#list{
+    
+}
+.hidden{
+    display: none;
+}
+.menu{
+    background-color: #ffffff;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000000;
+}

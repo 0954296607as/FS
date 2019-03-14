@@ -35,20 +35,17 @@ server.post('/login',(req,res)=>{
             if(v!==undefined){
                 if(v.admin==="true"){
                     res.render("admin",{
-                        title:"Административная панель",
                         root:`root`,
                         data: v
                     });
                 }else{
                     res.render("admin",{
-                        title:"Административная панель",
                         root:"user",
                         data:v
                     });
                 }
             }else{
                 res.render("admin",{
-                    title:"Административная панель",
                     root:undefined
                 })
             }

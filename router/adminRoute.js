@@ -5,6 +5,7 @@ module.exports =(express, db)=>{
         res.render("admin",{
             root:undefined
         });
+        
     });
     return router;
 }
